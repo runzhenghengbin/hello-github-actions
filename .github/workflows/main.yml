@@ -2,7 +2,7 @@ name: A workflow for my Hello World java
 on: push
 
 jobs:
-  build:
+  docker-image-build-push:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -14,4 +14,4 @@ jobs:
       - name: dockerhub login
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME}} -p ${{ secrets.DOCKERHUB_PASSWORD}}
       - name: push to dockerhub
-        run: docker image push
+        run: docker image push maomaochiyu/test:latest
